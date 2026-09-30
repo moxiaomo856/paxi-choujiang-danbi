@@ -54,7 +54,6 @@
   <header class="topbar">
     <div class="brand"><img class="brand-ic" src="./icon-128.png" alt="" width="24" height="24" decoding="async" /><span>Paxi 抽奖</span></div>
     <div class="wallet">
-      <span id="addr" class="addr" data-i18n="wallet.notConnected">未连接</span>
       <button id="btnConnect" class="btn primary sm" data-i18n="wallet.connect">连接</button>
       <button id="btnSession" class="btn ghost sm" hidden data-i18n="wallet.openSession">开无感</button>
       <button id="btnLang" class="btn ghost sm lang-btn">EN</button>
@@ -126,47 +125,10 @@
 
     <!-- ========== 我的 ========== -->
     <section class="page" id="page-me" hidden>
-      <h2 class="page-title" data-i18n="me.title">我的</h2>
+      <h2 class="page-title" data-i18n="me.title">钱包</h2>
 
-      <h2 class="page-title sm" data-i18n="me.intBalTitle">💰 合约内部余额</h2>
-      <div class="bal-grid">
-        <div class="bal">
-          <div class="k" id="balIntLabel" data-i18n="me.intBal">内部 {token}</div>
-          <div class="v" id="balInt">0</div>
-        </div>
-        <div class="bal" id="balIntPaxiBox">
-          <div class="k" data-i18n="me.intBalPaxi">内部 PAXI</div>
-          <div class="v" id="balIntPaxi">0</div>
-        </div>
-      </div>
-
-      <h2 class="page-title sm" data-i18n="me.walletTitle">👛 链上钱包</h2>
-      <div class="bal-grid">
-        <div class="bal">
-          <div class="k" id="balTokLabel" data-i18n="me.walletBal">链上 PAXI</div>
-          <div class="v" id="balTok">0</div>
-        </div>
-        <div class="bal" id="balPaxiBox">
-          <div class="k" data-i18n="me.paxiBal">链上 PAXI</div>
-          <div class="v" id="balPaxi">0</div>
-        </div>
-        <div class="bal">
-          <div class="k" data-i18n="me.balAddr">我的地址</div>
-          <div class="v" id="balAddr" style="font-size:11px;word-break:break-all">—</div>
-        </div>
-      </div>
-
-      <div class="sess-row" id="sessRow">
-        <div class="sess-info">
-          <div class="k" data-i18n="sessStatus.label">无感会话</div>
-          <div class="v off" id="sessStateText"></div>
-          <div class="hint" id="sessGasText"></div>
-        </div>
-        <button id="btnSessionMe" class="btn sm"></button>
-      </div>
-
-      <details class="collapse">
-        <summary data-i18n="me.depositWithdraw">充值 / 提现</summary>
+      <!-- 1. 充值 / 提现（置顶，最显眼） -->
+      <div class="dep-card">
         <div class="row wrap">
           <input id="depAmount" class="inp" type="number" min="0" step="0.000001"
                  data-i18n-placeholder="me.amount" placeholder="数量" enterkeyhint="done" />
@@ -178,7 +140,44 @@
           <button id="btnWithdraw" class="btn ghost" data-i18n="me.withdraw">提现</button>
         </div>
         <p class="hint" data-i18n="me.depositHint">充值进合约内部余额后，建池 / 参与 / 领取才能扣款；提现会回到链上钱包地址。</p>
-      </details>
+      </div>
+
+      <!-- 2. 余额：内部 | 链上，一行两列 -->
+      <div class="bal-grid wb">
+        <div class="bal">
+          <div class="k head" data-i18n="me.intBalTitle">💰 合约内部余额</div>
+          <div class="k" id="balIntLabel">内部 PAXI</div>
+          <div class="v" id="balInt">0</div>
+          <div id="balIntPaxiBox">
+            <div class="k" data-i18n="me.intBalPaxi">内部 PAXI</div>
+            <div class="v" id="balIntPaxi">0</div>
+          </div>
+        </div>
+        <div class="bal">
+          <div class="k head" data-i18n="me.walletTitle">👛 链上钱包</div>
+          <div class="k" id="balTokLabel">链上 PAXI</div>
+          <div class="v" id="balTok">0</div>
+          <div id="balPaxiBox">
+            <div class="k" data-i18n="me.paxiBal">链上 PAXI</div>
+            <div class="v" id="balPaxi">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. 我的地址 -->
+      <div class="bal addr-card">
+        <div class="k" data-i18n="me.balAddr">我的地址</div>
+        <div class="v addr" id="balAddr">—</div>
+      </div>
+
+      <div class="sess-row" id="sessRow">
+        <div class="sess-info">
+          <div class="k" data-i18n="sessStatus.label">无感会话</div>
+          <div class="v off" id="sessStateText"></div>
+          <div class="hint" id="sessGasText"></div>
+        </div>
+        <button id="btnSessionMe" class="btn sm"></button>
+      </div>
 
       <details class="collapse me-sec" id="secClaims">
         <summary data-i18n="me.claims">🎁 待领奖</summary>
@@ -271,7 +270,7 @@
       <span class="ico">✨</span><span data-i18n="nav.tabCreate">创建</span>
     </button>
     <button class="tab" data-tab="me">
-      <span class="ico">👤</span><span data-i18n="nav.tabMe">我的</span><i class="dot" id="tabMeDot" hidden></i>
+      <span class="ico">💰</span><span data-i18n="nav.tabMe">钱包</span><i class="dot" id="tabMeDot" hidden></i>
     </button>
     <button class="tab" data-tab="admin" id="tabAdmin" hidden>
       <span class="ico">⚙️</span><span data-i18n="nav.tabAdmin">管理</span>

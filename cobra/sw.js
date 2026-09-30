@@ -11,7 +11,7 @@
 const APP = (self.location.pathname.replace(/\/sw\.js$/, '').split('/').filter(Boolean).pop()) || 'root';
 const PREFIX = 'paxi-lottery-' + APP + '-';
 // v2 -> v3：单币版移除了 session.js，SHELL 清单变了，缓存名同步升。
-const CACHE = PREFIX + 'v8';
+const CACHE = PREFIX + 'v10';
 
 const SHELL = [
   './',

@@ -33,7 +33,7 @@
 
     'nav.tabPools': '奖池',
     'nav.tabCreate': '建池',
-    'nav.tabMe': '我的',
+    'nav.tabMe': '钱包',
     'nav.tabAdmin': '管理',
 
     'status.open': '报名中',
@@ -116,7 +116,7 @@
     'create.adminForbidden': '管理员 / 运营地址不能建池',
     'create.done': '建池成功',
 
-    'me.title': '我的',
+    'me.title': '钱包',
     'me.walletBal': '链上 {token}',
     'me.paxiBal': '链上 PAXI',
     'me.balAddr': '我的地址',
@@ -222,7 +222,7 @@
 
     'nav.tabPools': 'Pools',
     'nav.tabCreate': 'Create',
-    'nav.tabMe': 'Me',
+    'nav.tabMe': 'Wallet',
     'nav.tabAdmin': 'Admin',
 
     'status.open': 'Open',
@@ -305,7 +305,7 @@
     'create.adminForbidden': 'Admin / treasury cannot create',
     'create.done': 'Pool created',
 
-    'me.title': 'Me',
+    'me.title': 'Wallet',
     'me.walletBal': 'On-chain {token}',
     'me.paxiBal': 'On-chain PAXI',
     'me.balAddr': 'My address',

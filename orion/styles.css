@@ -43,7 +43,7 @@ body {
   -webkit-backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid var(--line);
 }
-.topbar .brand { display: flex; align-items: center; gap: 7px; min-width: 0; font-size: 15px; font-weight: 700; letter-spacing: .2px; }
+.topbar .brand { display: flex; align-items: center; gap: 7px; min-width: 0; font-size: 13px; font-weight: 700; letter-spacing: .2px; }
 /* 品牌文字**照旧自然折行**（不加 nowrap/省略号）：窄屏上右侧钱包按钮占位大，
    强行单行会把 "Paxi 抽奖 · TKCC" 截成 "Paxi 抽奖 · T…"，比折行更难看。 */
 .topbar .brand > span { min-width: 0; line-height: 1.25; word-break: break-word; }
@@ -111,7 +111,11 @@ body {
 .btn.block { width: 100%; padding: 12px; font-size: 15px; margin-top: 10px; }
 .btn.sm { padding: 6px 12px; font-size: 12px; }
 /* 语言切换：固定最小宽度，避免 EN ↔ 中文 切换时顶栏按钮宽度抖动、整排位移 */
-.lang-btn { min-width: 52px; text-align: center; padding-left: 8px; padding-right: 8px; }
+.lang-btn { min-width: 44px; text-align: center; padding-left: 6px; padding-right: 6px; }
+/* 顶栏按钮整体调小：开无感 / EN / 门户 同排更紧凑 */
+.topbar .wallet .btn.sm { padding: 5px 9px; font-size: 11px; }
+.topbar .wallet .home-btn .home-ic { font-size: 13px; }
+.topbar .wallet .home-btn .home-tx { font-size: 9px; }
 /* 唯一一条 disabled 规则：交易在途 / 不可用态 */
 .btn:disabled { opacity: .55; cursor: not-allowed; pointer-events: none; }
 
@@ -651,3 +655,21 @@ select.inp {
 .home-btn { text-decoration: none; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; padding: 4px 10px; line-height: 1.1; min-width: 44px; }
 .home-ic { font-size: 15px; }
 .home-tx { font-size: 10px; font-weight: 600; }
+
+/* ============================================================
+ * 钱包页排版：充值置顶卡 + 内部/链上双列余额 + 地址卡
+ * ============================================================ */
+.dep-card {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 12px; padding: 12px 14px; margin: 4px 0 12px;
+}
+.dep-card .row { margin: 0; }
+.dep-card .hint { margin: 8px 0 0; }
+.bal-grid.wb { grid-template-columns: 1fr 1fr; }
+.bal-grid.wb .bal .k { margin-bottom: 2px; }
+.bal-grid.wb .bal .k.head { font-weight: 700; margin-bottom: 8px; }
+.bal-grid.wb .bal .v { font-size: 15px; }
+#balIntPaxiBox, #balPaxiBox { margin-top: 8px; }
+.bal-grid.wb .bal:last-child { grid-column: auto; }
+.addr-card { text-align: center; margin: 0 0 12px; }
+.addr-card .addr { font-size: 12px; word-break: break-all; }

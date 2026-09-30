@@ -85,7 +85,7 @@
 
   function shortAddr(a) {
     if (!a) return '';
-    return a.length > 16 ? a.slice(0, 8) + '…' + a.slice(-6) : a;
+    return a.length > 8 ? a.slice(0, 6) + '…' : a;
   }
 
   function escapeHtml(s) {
@@ -124,7 +124,7 @@
   /** 连接成功后的公共后续（连接按钮与静默连接共用） */
   async function afterConnect(addr) {
     S.addr = addr;
-    $('#addr').textContent = shortAddr(addr);
+    const addrEl = $('#addr'); if (addrEl) addrEl.textContent = shortAddr(addr);
     $('#btnConnect').textContent = shortAddr(addr);
     $('#btnConnect').classList.add('ghost');
     $('#btnConnect').classList.remove('primary');
